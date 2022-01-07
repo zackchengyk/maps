@@ -1,0 +1,7 @@
+ARGS
+INPUT
+mock data/stars/mock-person-bad-email.csv
+OUTPUT
+MockPerson{firstName='null', lastName='ThisOne', datetime='5/6/1981', emailAddress='is_okay@shutterfly.com', gender='Female', streetAddress='812 Express Avenue'}
+ERROR:
+END

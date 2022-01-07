@@ -1,0 +1,6 @@
+ARGS
+INPUT
+stars data/stars/non-existent-star.csv
+OUTPUT
+ERROR:
+END

@@ -1,0 +1,43 @@
+INPUT
+map data/maps/empty.sqlite3
+ways a 0 0 0
+map data/maps/empty.sqlite3
+ways 0 a 0 0
+map data/maps/empty.sqlite3
+ways 0 0 a 0
+map data/maps/empty.sqlite3
+ways 0 0 0 a
+map data/maps/empty.sqlite3
+nearest a 0
+map data/maps/empty.sqlite3
+nearest 0 a
+map data/maps/empty.sqlite3
+route a 0 0 0
+map data/maps/empty.sqlite3
+route 0 a 0 0
+map data/maps/empty.sqlite3
+route 0 0 a 0
+map data/maps/empty.sqlite3
+route 0 0 0 a
+OUTPUT
+map set to data/maps/empty.sqlite3
+ERROR:
+map set to data/maps/empty.sqlite3
+ERROR:
+map set to data/maps/empty.sqlite3
+ERROR:
+map set to data/maps/empty.sqlite3
+ERROR:
+map set to data/maps/empty.sqlite3
+ERROR:
+map set to data/maps/empty.sqlite3
+ERROR:
+map set to data/maps/empty.sqlite3
+ERROR:
+map set to data/maps/empty.sqlite3
+ERROR:
+map set to data/maps/empty.sqlite3
+ERROR:
+map set to data/maps/empty.sqlite3
+ERROR:
+END

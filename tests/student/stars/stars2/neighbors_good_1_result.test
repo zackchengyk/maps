@@ -1,0 +1,11 @@
+ARGS
+INPUT
+stars data/stars/one-star.csv
+neighbors 1 "Lonely Star"
+stars data/stars/one-star.csv
+neighbors 1 0.314 0.69184 100.5124
+OUTPUT
+Read 1 stars from data/stars/one-star.csv
+Read 1 stars from data/stars/one-star.csv
+1
+END

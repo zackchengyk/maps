@@ -1,0 +1,15 @@
+INPUT
+maps data/maps/smallMaps.sqlite3
+map data/maps/smallMaps.sqlite3
+way 41.821 -71.41 41.82 -71.4
+neares 41.821 -71.41
+rout 41.821 -71.41 41.82 -71.4
+routes "Chihiro Ave" "Radish Spirit Blvd" "Kamaji Pl" "Yubaba St"
+OUTPUT
+ERROR:
+map set to data/maps/smallMaps.sqlite3
+ERROR:
+ERROR:
+ERROR:
+ERROR:
+END

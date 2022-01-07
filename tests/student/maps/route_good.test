@@ -1,0 +1,26 @@
+INPUT
+map data/maps/tinyMaps.sqlite3
+route 0 0 0.1 0.1
+route "Way 01" "Way 02" "Way 02" "Way 12"
+just_a_bad_command_to_make_an_error_appear_to_separate_this 1 2 3 4 5
+nearest 2   2
+nearest 2.1 2
+route 2.1 2 2 2
+route 2 2 2.1 2
+route 2 2 0 0
+just_another_bad_command_to_make_another_error_appear
+route 0.1 0.1 0 0
+OUTPUT
+map set to data/maps/tinyMaps.sqlite3
+/n/0 -> /n/2 : /w/2
+/n/0 -> /n/2 : /w/2
+ERROR:
+/n/away_from_main_group_1
+/n/away_from_main_group_2
+/n/away_from_main_group_2 -/- /n/away_from_main_group_1
+/n/away_from_main_group_1 -> /n/away_from_main_group_2 : /w/away_from_main_group_1_2
+/n/away_from_main_group_1 -/- /n/0
+ERROR:
+/n/2 -> /n/1 : /w/4
+/n/1 -> /n/0 : /w/3
+END

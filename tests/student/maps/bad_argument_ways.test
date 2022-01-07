@@ -1,0 +1,16 @@
+INPUT
+map data/maps/smallMaps.sqlite3
+ways 41.821 -71.41 41.82
+ways 41.821 -71.41 41.82 -71.4 -71.4
+ways 41.821 -71.41 41.82 error
+ways
+ways 41.82 -71.41 41.821 -71.4
+ways 41.821 -71.4 41.82 -71.41
+ways -91 -71.41 41.82 -71.4
+ways 41.821 -71.41 91 -71.4
+ways 41.821 -181 41.82 -71.4
+ways 41.821 -71.41 41.82 181
+OUTPUT
+map set to data/maps/smallMaps.sqlite3
+ERROR:
+END

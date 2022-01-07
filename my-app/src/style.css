@@ -1,0 +1,500 @@
+/* Top-Level Stuff */
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--background);
+  height: 100vh;
+  overscroll-behavior: none;
+}
+
+div#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+:root {
+  --intellij-purple: rgb(180, 133, 205);
+  --intellij-blue: rgb(74, 136, 199);
+  --intellij-light-blue: rgb(105, 160, 215);
+  --intellij-green: rgb(95, 179, 73);
+  --intellij-light-green: rgb(120, 215, 120);
+  --intellij-yellow-green: rgb(182, 215, 95);
+  --intellij-yellow: rgb(248, 189, 70);
+  --intellij-orange: rgb(245, 125, 23);
+  --intellij-red: rgb(205, 50, 55);
+  --intellij-gray: rgb(128, 128, 128);
+  --intellij-text: rgb(190, 190, 190);
+  --intellij-text-left: rgb(154, 154, 154);
+  --intellij-text-hover: rgb(43, 43, 43);
+  --intellij-text-click: rgb(150, 150, 150);
+  --intellij-highlight: rgb(58, 58, 58);
+  --intellij-highlight-hover: rgb(190, 190, 190);
+  --intellij-highlight-click: rgb(20, 20, 20);
+  --intellij-outline: rgb(68, 68, 68);
+  --intellij-tabs-outline: rgb(50, 50, 50);
+  --intellij-light-gray: rgb(77, 81, 83);
+  --intellij-dark-gray: rgb(60, 63, 65);
+  --intellij-darker-gray: rgb(49, 51, 53);
+  --intellij-darkest-gray: rgb(43, 43, 43);
+  --intellij-output-dark: rgb(35, 35, 35);
+  --background: rgb(45, 45, 45);
+  --shadow: rgb(5, 5, 5);
+
+  --tabs-height: 35px;
+  --num-col-width: 65px;
+  --left-panel-width: 405px;
+  --canvas-dims: 600px;
+  --text-input-width: 28ch;
+  --toast-margin: 15px;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+  border: none;
+  padding: 0;
+  margin: 0;
+  line-height: 23px;
+  font-size: 13px;
+  font-weight: 400;
+  font-family: "JetBrains Mono", sans-serif;
+  color: var(--intellij-text);
+  background-color: transparent;
+  outline: none
+}
+
+span {
+  display: inline;
+}
+
+div.noWrap {
+  white-space: nowrap;
+}
+
+.italics {
+  font-style: italic;
+  font-weight: 600;
+}
+.purple {
+  color: var(--intellij-purple);
+}
+.lightblue {
+  color: var(--intellij-light-blue);
+}
+.green {
+  color: var(--intellij-green);
+}
+.lightgreen {
+  color: var(--intellij-light-green);
+}
+.yellowgreen {
+  color: var(--intellij-yellow-green);
+}
+.yellow {
+  color: var(--intellij-yellow);
+}
+.orange {
+  color: var(--intellij-orange);
+}
+.red {
+  color: var(--intellij-red);
+}
+.gray {
+  color: var(--intellij-gray);
+}
+
+/* Maps Window */
+
+div#MapWindow {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  border-radius: 25px;
+  overflow: hidden;
+  min-height: var(--tabs-height);
+  height: 100vh;
+  max-height: calc(var(--tabs-height) + var(--canvas-dims));
+  width: auto;
+  background-color: var(--intellij-darker-gray);
+}
+@media screen and (max-height: 635px) {
+  div#MapWindow {
+    border-radius: 0;
+  }
+  div#MapWindowLeft {
+    overflow-y: scroll;
+  }
+  .hasDataToolTip::after {
+    white-space: normal !important;
+  }
+}
+@media screen and (max-width: 1070px) {
+  div#MapWindow,
+  div#MapCanvasWrapper,
+  canvas#MapCanvas,
+  div#MapCanvasLoading {
+    border-radius: 0 !important;
+  }
+}
+.shadow {
+  box-shadow: 0 20px 40px -5px var(--shadow);
+  -o-box-shadow: 0 20px 40px -5px var(--shadow);
+  -moz-box-shadow: 0 20px 40px -5px var(--shadow);
+  -webkit-box-shadow: 0 20px 40px -5px var(--shadow);
+}
+
+div#MapWindowInnerWrapper {
+  display: flex;
+  height: calc(100% - var(--tabs-height));
+}
+
+div#MapWindowLeft {
+  height: 100%;
+  flex-shrink: 0;
+}
+div#MapWindowLeftInner {
+  display: flex;
+  min-height: 100%;
+}
+div#MapWindowLeftLineColumn {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  width: var(--num-col-width);
+  padding: 25px 23px 100px 0;
+  border-right: 1px solid var(--intellij-outline);
+}
+div#MapWindowLeftLineColumn > p {
+  text-align: right;
+  font-weight: 400;
+  color: var(--intellij-text-left);
+}
+div#MapWindowLeftRouting {
+  height: auto;
+  background-color: var(--intellij-darkest-gray);
+}
+
+div#MapWindowRight {
+  flex-grow: 0;
+  background-color: var(--intellij-darker-gray);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Toast */
+
+ul#ToastContainer {
+  display: flex;
+  position: absolute;
+  z-index: 900;
+  right: var(--toast-margin);
+  bottom: var(--toast-margin);
+  flex-direction: column-reverse;
+  height: calc(var(--canvas-dims) - 2 * var(--toast-margin));
+  width: calc(var(--canvas-dims) / 3);
+  pointer-events: none;
+}
+li.ToastContent {
+  border-radius: 2px;
+  display: block;
+  position: relative;
+  margin-top: 10px;
+  padding: 5px 25px 5px 8px;
+  background-color: var(--intellij-light-gray);
+  text-align: left;
+  box-shadow: 0 2px 10px 1px var(--intellij-output-dark);
+}
+li.ToastContent > p {
+  color: var(--intellij-text);
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 13px;
+  line-height: 17px;
+}
+li.ToastContent > button {
+  border-radius: 2px;
+  position: absolute;
+  display: block;
+  z-index: 950;
+  top: 6px;
+  right: 6px;
+  height: 15px;
+  width: 15px;
+  pointer-events: all;
+  cursor: pointer;
+}
+li.ToastContent > button:hover {
+  background-color: var(--intellij-gray);
+}
+
+/* Tabs */
+
+div#tabsWrapper {
+  display: flex;
+  height: var(--tabs-height);
+  width: 100%;
+  padding-left: var(--tabs-height);
+  background-color: var(--intellij-dark-gray);
+  border-bottom: 1px solid var(--intellij-tabs-outline);
+}
+
+button.tab {
+  height: 100%;
+  padding: 6px 13px;
+  text-decoration: none;
+  cursor: pointer;
+}
+button.tab.active {
+  background-color: var(--intellij-light-gray);
+  border-bottom: 3px solid var(--intellij-blue);
+}
+button.tab:hover,
+button.tab:focus {
+  outline: none;
+  background-color: var(--intellij-tabs-outline);
+}
+
+/* Route */
+
+div.MapRouteFunction {
+  width: var(--left-panel-width);
+  padding: 23px 25px 0 15px;
+}
+div.MapRouteFunction:first-of-type {
+  padding-top: 25px;
+}
+
+.indent {
+  padding-left: 2ch;
+}
+.doubleIndent {
+  padding-left: 4ch;
+}
+div#srcNodeSelectorWrapper,
+div#desCoordsWrapper {
+  position: relative;
+  display: flex;
+}
+button.ClickModifierSelectButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1px;
+  cursor: pointer;
+  height: available;
+  width: 4ch;
+  margin: 2px 4px;
+  background-color: var(--intellij-dark-gray);
+}
+svg.selectButtonIcon {
+  fill: var(--intellij-text-left);
+  height: 13px;
+}
+button.ClickModifierSelectButton:hover > svg.selectButtonIcon,
+button.ClickModifierSelectButton:focus > svg.selectButtonIcon {
+  fill: var(--intellij-highlight-hover);
+  height: 16px;
+}
+button.ClickModifierSelectButton.active {
+  background-color: var(--intellij-highlight-hover);
+}
+button.ClickModifierSelectButton.active > svg.selectButtonIcon {
+  fill: var(--intellij-darkest-gray);
+}
+
+/* Clients */
+
+div#MapClientsContainer {
+  display: block;
+  width: var(--left-panel-width);
+  padding: 25px 0;
+}
+li.MapClientsContent {
+  display: inline-block;
+  width: 100%;
+  padding: 0 15px;
+  text-align: left;
+  white-space: pre-line;
+}
+li.MapClientsContent:hover,
+li.MapClientsContent:focus {
+  background-color: var(--intellij-darker-gray);
+}
+span.expander:hover {
+  cursor: pointer;
+}
+span.expander:focus {
+  background-color: var(--intellij-dark-gray);
+}
+
+/* Canvas */
+
+div#MapCanvasWrapper {
+  flex-shrink: 0;
+  position: relative;
+  border-radius: 0 0 25px 0;
+  background-color: var(--intellij-darker-gray);
+  border-left: 1px solid var(--intellij-tabs-outline);
+  height: var(--canvas-dims);
+  width: var(--canvas-dims);
+}
+canvas#MapCanvas {
+  overscroll-behavior: none;
+  display: block;
+  position: absolute;
+  z-index: 0;
+  border-radius: 0 0 25px 0;
+  height: var(--canvas-dims);
+  width: var(--canvas-dims);
+  background-color: var(--intellij-darker-gray);
+}
+
+div#MapCanvasLoading {
+  overscroll-behavior: none;
+  display: block;
+  position: absolute;
+  z-index: 50;
+  border-radius: 0 0 25px 0;
+  height: var(--canvas-dims);
+  width: var(--canvas-dims);
+  background-color: rgba(255,255,255,0.2);
+}
+div#MapCanvasLoading::after {
+  display: inline-block;
+  border-radius: 5px;
+  position: absolute;
+  z-index: 100;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  content: "Loading";
+  padding: 0 8px;
+  background-color: var(--intellij-dark-gray);
+  color: var(--intellij-text);
+  text-align: center;
+  box-shadow: 0 2px 10px 7px var(--intellij-output-dark);
+  animation: loadingText 2s linear infinite;
+}
+@keyframes loadingText {
+  0%  {content: "Loading";}
+  25% {content: "Loading.";}
+  50% {content: "Loading..";}
+  75% {content: "Loading...";}
+}
+
+/* Text Input */
+
+div.TextBox {
+  display: inline;
+}
+input.textInput {
+  width: var(--text-input-width);
+  margin: 2px 0;
+  line-height: 19px;
+  padding: 0 5px;
+  background-color: var(--intellij-dark-gray);
+}
+input.textInput.longer {
+  width: calc(var(--text-input-width));
+}
+input.textInput::placeholder {
+  font-style: italic;
+  color: var(--intellij-text-left);
+}
+input.textInput:hover::placeholder,
+input.textInput:focus::placeholder {
+  color: var(--intellij-text-hover);
+}
+input.textInput:hover,
+input.textInput:focus {
+  color: var(--intellij-text-hover);
+  background-color: var(--intellij-highlight-hover);
+  outline: none;
+  font-weight: 400;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+label {
+  display: none;
+}
+
+/* Button Input */
+
+.buttonInputWrapper {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+.buttonInput {
+  cursor: pointer;
+  height: 19px;
+  padding: 0;
+  margin: 0;
+  line-height: 19px;
+  font-weight: 400;
+  color: var(--intellij-orange);
+  background-color: transparent;
+}
+.buttonInput.inactive {
+  /*cursor: progress;*/
+  color: var(--intellij-dark-gray);
+  background-color: var(--intellij-gray);
+}
+.buttonInput:not(.inactive):hover,
+.buttonInput:not(.inactive):focus {
+  color: var(--intellij-text-hover);
+  background-color: var(--intellij-highlight-hover);
+}
+.buttonInput:not(.inactive):active {
+  color: var(--intellij-text-click);
+  background-color: var(--intellij-highlight-click);
+}
+.buttonInput:not(.inactive):focus {
+  outline: none;
+}
+
+/* ToolTip Stuff */
+
+.hasDataToolTip {
+  position: relative;
+}
+.hasDataToolTip:hover,
+.hasDataToolTip:focus {
+  position: relative;
+}
+.hasDataToolTip::after {
+  transition: opacity 0ms 0ms;
+  opacity: 0;
+  position: absolute;
+  display: inline-block;
+  border-radius: 5px;
+  pointer-events: none;
+  content: attr(data-tool-tip);
+  z-index: 1000;
+  top: calc(100% + 4px);
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0 8px;
+  font-size: 11px;
+  text-align: center;
+  white-space: nowrap;
+  background-color: var(--intellij-highlight-click);
+  color: var(--intellij-highlight-hover);
+}
+.hasDataToolTip:hover::after,
+.hasDataToolTip:focus::after,
+.hasDataToolTip:active::after {
+  transition: opacity 0ms 200ms;
+  opacity: 1;
+}

@@ -1,0 +1,38 @@
+ARGS
+INPUT
+mock data/stars/mock-person-bad-csv-format.csv
+mock data/stars/mock-person-header-only.csv
+mock data/stars/mock-person-bad-header.csv
+mock data/stars/mock-person-header-only.csv
+mock data/stars/empty-csv.csv
+mock data/stars/mock-person-header-only.csv
+stars data/stars/stars-bad-csv-format.csv
+stars data/stars/stars-header-only.csv
+stars data/stars/stars-bad-header.csv
+stars data/stars/stars-header-only.csv
+stars data/stars/empty-csv.csv
+stars data/stars/stars-header-only.csv
+stars data/stars/stars-bad-dup-id.csv
+naive_neighbors 1 "Sol"
+neighbors 1 "Sol"
+naive_neighbors 1 0 0 0
+neighbors 1 0 0 0
+naive_radius 1 "Sol"
+radius 1 "Sol"
+naive_radius 1 0 0 0
+radius 1 0 0 0
+OUTPUT
+ERROR:
+Read 0 mock people from data/stars/mock-person-header-only.csv
+ERROR:
+Read 0 mock people from data/stars/mock-person-header-only.csv
+ERROR:
+Read 0 mock people from data/stars/mock-person-header-only.csv
+ERROR:
+Read 0 stars from data/stars/stars-header-only.csv
+ERROR:
+Read 0 stars from data/stars/stars-header-only.csv
+ERROR:
+Read 0 stars from data/stars/stars-header-only.csv
+ERROR:
+END

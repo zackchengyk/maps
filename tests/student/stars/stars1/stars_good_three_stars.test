@@ -1,0 +1,6 @@
+ARGS
+INPUT
+stars data/stars/three-star.csv
+OUTPUT
+Read 3 stars from data/stars/three-star.csv
+END

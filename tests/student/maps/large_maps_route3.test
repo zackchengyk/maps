@@ -1,0 +1,9 @@
+INPUT
+map data/maps/maps.sqlite3
+route "Watch Hill Road" "Glen Way" "Glen Way" "Popon Road"
+route "Lighthouse Road" "Bluff Avenue" "Golf Club Road" "Round Hill Road"
+OUTPUT
+map set to data/maps/maps.sqlite3
+ERROR:
+ERROR:
+END

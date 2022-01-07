@@ -1,0 +1,7 @@
+INPUT
+map data/maps/maps.sqlite3
+ways 1 0 0 1
+OUTPUT
+map set to data/maps/maps.sqlite3
+ERROR:
+END

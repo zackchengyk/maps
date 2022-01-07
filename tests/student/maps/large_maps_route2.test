@@ -1,0 +1,9 @@
+INPUT
+map data/maps/maps.sqlite3
+route -1000 -1000 1000 1000
+route -90 -180 90 180
+OUTPUT
+map set to data/maps/maps.sqlite3
+ERROR:
+/n/4130.7185.201622857 -/- /n/4159.7111.73030516
+END

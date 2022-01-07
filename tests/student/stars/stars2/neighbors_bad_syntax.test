@@ -1,0 +1,12 @@
+ARGS
+INPUT
+stars data/stars/three-star.csv
+neighbors 1
+stars data/stars/tie-star.csv
+neighbors 0 0 0 0 0 0
+OUTPUT
+Read 3 stars from data/stars/three-star.csv
+ERROR:
+Read 10 stars from data/stars/tie-star.csv
+ERROR:
+END

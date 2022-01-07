@@ -1,0 +1,16 @@
+ARGS
+INPUT
+stars data/stars/one-star.csv
+radius 500000 -10.052 -664.3571 104.1234
+stars data/stars/ten-star.csv
+radius 5 "Proxima Centauri"
+OUTPUT
+Read 1 stars from data/stars/one-star.csv
+1
+Read 10 stars from data/stars/ten-star.csv
+71454
+71457
+0
+87666
+118721
+END

@@ -1,0 +1,6 @@
+INPUT
+route 0 0 0 0
+route "lol" "lol" "lol" "lol"
+OUTPUT
+ERROR:
+END

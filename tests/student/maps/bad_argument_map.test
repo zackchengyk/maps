@@ -1,0 +1,8 @@
+INPUT
+map data/maps/nonexistingfile.sqlite3
+map data/maps/smallMaps.sqlite3 0
+map
+map 0
+OUTPUT
+ERROR:
+END

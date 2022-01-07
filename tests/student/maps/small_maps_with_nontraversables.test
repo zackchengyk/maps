@@ -1,0 +1,23 @@
+INPUT
+map data/maps/smallMapsWithNontraversables.sqlite3
+ways 42 -72 41.8 -71.3
+nearest 41.8 -71.4
+nearest 41.8203 -71.4003
+route 41.8 -71.4 41.8203 -71.4003
+route "Radish Spirit Blvd" "Yubaba St" "Yubaba St" "Sootball Ln"
+route "Chihiro Ave" "Radish Spirit Blvd" "Yubaba St" "Sootball Ln"
+OUTPUT
+map set to data/maps/smallMapsWithNontraversables.sqlite3
+/w/0
+/w/1
+/w/2
+/w/3
+/w/4
+/w/5
+/w/6
+/n/3
+/n/4
+/n/3 -> /n/4 : /w/5
+/n/3 -> /n/4 : /w/5
+ERROR:
+END

@@ -1,0 +1,21 @@
+INPUT
+map data/maps/smallMaps.sqlite3
+route 41.821 -71.41 41.82
+route 41.821 -71.41 41.82 -71.4 -71.4
+route 41.821 -71.41 41.82 error
+route
+route -91 -71.41 41.82 -71.4
+route 41.821 -71.41 91 -71.4
+route 41.821 -181 41.82 -71.4
+route 41.821 -71.41 41.82 181
+route "Chihiro Ave" "Radish Spirit Blvd" "Kamaji Pl" "Yubaba St
+route Chihiro Ave" "Radish Spirit Blvd" "Kamaji Pl" "Yubaba St"
+route "Chihiro Ave" Radish Spirit Blvd "Kamaji Pl" "Yubaba St"
+route "Chihiro Ave" "Radish Spirit Blvd" "Kamaji Pl"
+route "Chihiro Ave" "Radish Spirit Blvd" "Kamaji Pl" "Yubaba St" "Yubaba St"
+route "Chihiro Ave" "Radish Spirit Blvd" "Kamaji Pl" "Sootball Ln"
+route "Chihiro Ave" "Radish Spirit Blvd" "Kamaji Pl" "nonexisting st"
+OUTPUT
+map set to data/maps/smallMaps.sqlite3
+ERROR:
+END

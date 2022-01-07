@@ -1,0 +1,28 @@
+ARGS
+INPUT
+stars data/stars/one-star.csv
+radius 1 hello 0.69184 100.5124
+stars data/stars/one-star.csv
+radius 1 0.69184 hello 100.5124
+stars data/stars/one-star.csv
+radius 1 12.512 0.69184 hello
+stars data/stars/one-star.csv
+neighbors 1 hello 0.69184 100.5124
+stars data/stars/one-star.csv
+neighbors 1 0.69184 hello 100.5124
+stars data/stars/one-star.csv
+neighbors 1 12.512 0.69184 hello
+OUTPUT
+Read 1 stars from data/stars/one-star.csv
+ERROR:
+Read 1 stars from data/stars/one-star.csv
+ERROR:
+Read 1 stars from data/stars/one-star.csv
+ERROR:
+Read 1 stars from data/stars/one-star.csv
+ERROR:
+Read 1 stars from data/stars/one-star.csv
+ERROR:
+Read 1 stars from data/stars/one-star.csv
+ERROR:
+END
